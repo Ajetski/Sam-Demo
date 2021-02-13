@@ -46,4 +46,4 @@ app.get('/open-chrome', async (req: express.Request, res: express.Response) => {
 	}
 });
 
-app.listen(PORT, () => console.log(`servere is running on port ${PORT}...`));
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}...`));
