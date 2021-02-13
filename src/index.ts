@@ -1,11 +1,8 @@
-import express from 'express';
-import path from 'path';
+import express, { Request, Response } from 'express';
+import { exec } from 'child_process';
 
 const app = express();
-
 const PORT = process.env.PORT || 8080;
-
-const { exec } = require("child_process");
 
 app.use(express.static('web'));
 
@@ -23,18 +20,18 @@ const runCommand = (cmd: string) => {
 			resolve(stdout);
 		});
 	});
-}
+};
 
-app.get('/', (req: express.Request, res: express.Response) => {
+app.get('/', (req: Request, res: Response) => {
 	res.render('../web/index.html');
 });
 
-app.get('/hello-world', (req: express.Request, res: express.Response) => {
+app.get('/hello-world', (req: Request, res: Response) => {
 	console.log('Hello World uwu');
 	return res.send({ done: true });
 });
 
-app.get('/open-chrome', async (req: express.Request, res: express.Response) => {
+app.get('/open-chrome', async (req: Request, res: Response) => {
 	try {
 		await runCommand('"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"');
 		console.log('chrome opened');
