@@ -25,6 +25,10 @@ const runCommand = (cmd: string) => {
 	});
 }
 
+app.get('/', (req: express.Request, res: express.Response) => {
+	res.render('../web/index.html');
+});
+
 app.get('/hello-world', (req: express.Request, res: express.Response) => {
 	console.log('Hello World uwu');
 	return res.send({ done: true });
