@@ -23,7 +23,7 @@ const runCommand = (cmd: string) => {
 };
 
 app.get('/', (req: Request, res: Response) => {
-	res.render('../web/index.html');
+	return res.render('../web/index.html');
 });
 
 app.get('/hello-world', (req: Request, res: Response) => {
