@@ -13,16 +13,13 @@ const runCommand = (cmd: string) => {
 	return new Promise<string>((resolve, reject) => {
 		exec(cmd, (error: { message: string }, stdout: string, stderr: string) => {
 			if (error) {
-				console.log(`error: ${error.message}`);
 				reject(error.message)
 				return;
 			}
 			if (stderr) {
-				console.log(`stderr: ${stderr}`);
 				reject(stderr);
 				return;
 			}
-			console.log(`stdout: ${stdout}`);
 			resolve(stdout);
 		});
 	});
